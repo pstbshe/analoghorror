@@ -1,16 +1,16 @@
 @font-face {
     font-family: 'Palui SP';
-    src: url('./fonts/PaluiSPDemo-Bold.ttf') format('truetype'); 
+    src: url('/fonts/PaluiSPDemo-Bold.ttf') format('truetype'); 
 }
 
 @font-face {
     font-family: 'Menlo-Regular';
-    src: url('./fonts/Menlo-Regular.ttf') format('truetype');
+    src: url('/fonts/Menlo-Regular.ttf') format('truetype');
 }
 
 body {
     font-family: 'Palui SP', sans-serif;
-    background-color: #000000;
+    background-color: #000;
     margin: 0;
     padding: 20px;
 }
@@ -21,50 +21,44 @@ body {
     margin: 20px 0;
 }
 
-#search-input {
-    padding: 10px;
-    font-size: 16px;
-    width: 300px; /* Ширина поля поиска */
-    background-color: black; /* Черный фон */
-    color: rgb(187, 19, 19); /* Красный цвет текста */
-    border: 1px solid gray; /* Серый цвет рамки*/
-    border-radius: 5px;
-}
-
-#search-button {
+#search-input, #search-button {
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
-    background-color: black; /* Черный фон кнопки */
-    color: red; /* Красный цвет текста на кнопке */
-    border: 1px solid gray; /* Серый цвет рамки */
+    background-color: black;
+    color: red;
+    border: 1px solid gray;
     border-radius: 5px;
+}
+
+#search-input {
+    width: 300px; /*Ширина поля поиска*/
 }
 
 .header {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    background-color: rgb(0, 0, 0);
-    color: #ff0000;
+    height: 100px;
+    background-color: #000;
+    color: rgb(255, 0, 0);
 }
 
 .logo {
-    height: 170px;
+    height: 170px; /*Высота логотипа на десктопах*/
 }
 
-
 .container {
-    display: flex; /*Flexbox*/
-    flex-wrap: wrap; /*Позволяет переносить блоки на новую строку при недостатке места*/
-    justify-content: center; /*Центрирует блоки по горизонтали*/
-    gap: 10px; /*Промежуток между блоками*/
-    padding: 20px; /*Отступы вокруг контейнера*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
 }
 
 .block {
     background-color: #1a1a1a;
-    border: 1px solid #000000;
+    border: 1px solid #000;
     border-radius: 5px;
     margin: 10px;
     padding: 10px;
@@ -72,7 +66,6 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
     overflow: hidden;
-    text-overflow: ellipsis
 }
 
 .block img {
@@ -82,7 +75,6 @@ body {
     display: block;
     margin: 0 auto;
 }
-}
 
 .block p {
     margin: 5px 0 0;
@@ -91,13 +83,12 @@ body {
 }
 
 .block a {
-    color: rgb(255, 255, 255);
+    color: white;
     text-decoration: none;
-
 }
 
 .block a:hover, .block a:focus {
-    color: red
+    color: red;
 }
 
 ::selection {
@@ -106,37 +97,38 @@ body {
 }
 
 @media (max-width: 1200px) {
-    .block {
-        width: calc(25% - 20px); /*4 блока в ряд на больших экранах*/
-    }
+    .block { width: calc(25% - 20px); }
 }
 
 @media (max-width: 992px) {
-    .block {
-        width: calc(33.333% - 20px); /*3 блока в ряд на средних экранах*/
-    }
+    .block { width: calc(33.333% - 20px); }
 }
 
 @media (max-width: 768px) {
-    .block {
-        width: calc(50% - 20px); /*2 блока в ряд на планшетах*/
-    }
-}
-
-@media (max-width: 768px) {
-    .block {
-        width: 100%; /*1 блок в ряд на мобильных устройствах*/
-    }
-}
-
-@media (max-width: 768px) {
+    .block { width: 100%; }
     .header {
-        flex-direction: column; /*Изменение напарвления на ВЕРТИКАЛЬНое*/
-        align-items: flex-start; /*Выравнивание элементов по ЛЕВОМУ краю*/
-        padding: 5px; /*Отступы уменьшаюься*/
+        height: 80px;
+        padding: 10px;
     }
-
     .header h1 {
-        font-size: 1.5em; /*Размер шрифта для загаловка уменьшается*/
+        font-size: 1.5em;
+    }
+    .logo {
+        height: 140px; /*Лого на планшетах*/
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        height: 60px; /*Уменьшение высоты заголовка на мобильных устройствах*/
+        padding: 5px;
+    }
+    .header h1 {
+        font-size: 1.2em; /*Уменьшение размер шрифта заголовка*/
+    }
+    .logo {
+        height: 100px; /*Высота лого на мобилках*/
+        width: 70%;
     }
 }
